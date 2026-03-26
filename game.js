@@ -1,3 +1,10 @@
+const discordSdk = new DiscordSDK.DiscordSDK(YOUR_CLIENT_ID);
+async function setupDiscord() {
+    await discordSdk.ready();
+ }
+setupDiscord();
+
+
 // État global du jeu
 let gameState = {
     rage_leo: 0,
