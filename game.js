@@ -1,15 +1,3 @@
-const discordSdk = new (window.discordSdk || window.DiscordSDK).DiscordSDK("1486846362640322730");
-async function setupDiscord() {
-    try {
-        await discordSdk.ready();
-        console.log("Discord SDK is ready!");
-    } catch (error) {
-        console.error("Failed to initialize Discord SDK:", error);
-    }
-}
-setupDiscord();
-
-
 // État global du jeu
 let gameState = {
     rage_leo: 0,
