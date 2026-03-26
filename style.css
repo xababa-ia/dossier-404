@@ -1,0 +1,250 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-surface: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #6a0dad;
+    --danger: #8b0000;
+    --success: #2e7d32;
+    --border-ui: #333;
+    
+    --font-main: "Courier New", monospace;
+    --font-header: "Georgia", serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligné en haut pour permettre le scroll */
+    min-height: 100vh;
+    overflow-y: auto; /* Autorise le défilement vertical */
+}
+
+#game-container {
+    width: 98%;
+    max-width: 1000px;
+    min-height: 98vh; /* Hauteur minimale au lieu de fixe */
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#game-container.loading #narrative-box,
+#game-container.loading #choices-container {
+    display: none; /* On retire de l'espace pour centrer le titre sur tout l'écran */
+}
+
+#game-container.loading #game-visual {
+    flex: 1; /* Prend tout l'espace disponible */
+    height: 100%;
+    max-height: none;
+}
+
+#game-visual {
+    width: 100%;
+    flex: 0 0 auto;
+    min-height: 300px;
+    max-height: 55vh;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease; /* Transition fluide de redimensionnement */
+}
+
+#chapter-title-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrage vertical */
+    align-items: center; /* Centrage horizontal */
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+}
+
+#chapter-title-screen.visible {
+    opacity: 1;
+}
+
+.chapter-number {
+    font-family: var(--font-header); /* Georgia / Serif */
+    color: var(--text-primary);
+    font-size: 5rem; /* Massivement plus gros */
+    margin: 0;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.chapter-subtitle {
+    font-family: var(--font-main); /* Courier New */
+    color: var(--accent);
+    font-size: 2rem; /* Plus gros pour l'équilibre */
+    margin-top: 25px;
+    letter-spacing: 4px;
+    opacity: 0.9;
+}
+
+#scene-image {
+    max-width: 800px; /* JSON: max_width */
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px; /* JSON: border_radius */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8); /* JSON: box_shadow */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* État quand il n'y a pas d'image */
+#game-container.no-image {
+    justify-content: center; /* Centre verticalement les enfants */
+}
+
+#game-container.no-image #game-visual {
+    display: none;
+}
+
+#game-container.no-image #narrative-box {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    height: 350px; /* Taille fixe en hauteur */
+    margin: 0 auto;
+    flex: none; /* Empêche le conteneur de s'étirer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le texte à l'intérieur verticalement */
+}
+
+#game-container.no-image #choices-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#game-container.no-image #story-text {
+    font-size: 1.2rem;
+}
+
+#scene-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+
+#narrative-box {
+    background-color: var(--bg-surface);
+    padding: 30px 50px; /* Plus large à l'intérieur */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 100px;
+    position: relative; /* Pour positionner le bouton Passer */
+}
+
+#skip-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#skip-btn:hover {
+    opacity: 1;
+    color: var(--text-primary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#scene-type-badge {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--border-ui);
+    padding-bottom: 10px;
+}
+
+#story-text {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#choices-container {
+    flex: 0 0 auto; /* Ne s'étire pas, garde sa taille naturelle */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 10px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.choice-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-ui);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.choice-btn:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    background-color: rgba(106, 13, 173, 0.1);
+}
+
+.choice-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+}

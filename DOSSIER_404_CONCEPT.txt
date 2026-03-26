@@ -1,0 +1,53 @@
+PROJET : JEU D'ENQUÊTE NARRATIF "DOSSIER 404"
+STRUCTURE : INTERROGATOIRE (PRÉSENT) / FLASHBACK (PASSÉ)
+
+================================================================
+1. SYSTÈME TECHNIQUE (BACK-END)
+================================================================
+- Variables Globales :
+    * rage_leo (0-100) : Impacte la violence des flashbacks.
+    * suspicion (0-100) : Impacte la fin du jeu (liberté ou prison).
+    * preuves (Array) : Stocke les objets trouvés (ex: "mot_doux", "photo_phone").
+    * decouverte (String) : Comment Léo a su (sms, ouie, provocation).
+    * paranormal (0-10) : Influence les délires de Mathis.
+
+- Logique des Interrogatoires :
+    * Chaque suspect a 2 questions basiques + 1 question Flashback [👁️].
+    * Poser une question [👁️] termine l'entretien et grise le suspect.
+    * Possibilité de quitter une salle sans voir le flashback (bouton "Terminer").
+
+================================================================
+2. PERSONNAGES & RÔLES
+================================================================
+SURVIVANTS (Interrogés) :
+- LÉO (Tueur/Joueur) : Froid, méthodique, cache sa rage.
+- CHLOÉ (Infidèle) : Nerveuse, complice par peur.
+- SARAH (Observatrice) : Amère, possède des preuves.
+- MATHIS (Naïf) : Paranoïaque, croit à un tueur extérieur/monstre.
+
+MORTS (Flashbacks uniquement) :
+- THOMAS (L'Amant) : Première victime (Chapitre 2).
+- JULIE (La Confidente) : Tuée car elle en savait trop (Chapitre 3).
+- KEVIN (Le Sportif) : Tué en tentant de protéger le groupe (Chapitre 4).
+- EMMA (La Photographe) : Tuée pour ses preuves visuelles (Chapitre 4).
+
+================================================================
+3. RÉSUMÉ DES CHAPITRES
+================================================================
+CHAPITRE 0 : Le Bureau de l'Inspecteur (INTRO)
+- Consultation obligatoire du dossier : Rapport, Photos (4 morts/4 vifs), Scellés.
+
+CHAPITRE 1 : L'Arrivée (INSTALLATION)
+- Léo découvre la trahison (SMS ou porte).
+- Chloé et Thomas s'isolent. Sarah trouve le mot doux. Mathis voit une "ombre".
+
+CHAPITRE 2 : La Fracture (LA MORT DE THOMAS)
+- Dispute nocturne. Léo tue Thomas (accident ou prémédité).
+- Choix de cacher le corps. Première incohérence dans les témoignages.
+
+CHAPITRE 3 : L'Engrenage (JULIE)
+- Julie devient suspecte envers Léo. La tempête bloque tout.
+- Léo doit l'éliminer sans se faire voir par les autres.
+
+CHAPITRE 4 : La Nuit du Massacre (KEVIN & EMMA)
+- Fuite dans la forêt. Scène de l

@@ -1,0 +1,56 @@
+{
+  "project_name": "Dossier 404",
+  "visual_identity": {
+    "theme": "Neo-Noir / Cinematic Thriller",
+    "color_palette": {
+      "background": "#0a0a0a",
+      "surface": "#1a1a1a",
+      "text_primary": "#e0e0e0",
+      "text_secondary": "#a0a0a0",
+      "accent": "#6a0dad",
+      "danger": "#8b0000",
+      "success": "#2e7d32"
+    },
+    "typography": {
+      "main_font": "Courier New, monospace",
+      "header_font": "Georgia, serif",
+      "typewriter_effect": {
+        "enabled": true,
+        "speed_ms": 40
+      }
+    },
+    "animations": {
+      "scene_transition": "fade-in 0.8s",
+      "button_hover": "glow-accent 0.3s",
+      "image_entry": "subtle-zoom-in"
+    }
+  },
+  "ui_components": {
+    "image_container": {
+      "border_radius": "8px",
+      "box_shadow": "0 10px 30px rgba(0,0,0,0.8)",
+      "max_width": "800px"
+    },
+    "buttons": {
+      "style": "minimalist",
+      "border": "1px solid #333",
+      "padding": "12px 24px"
+    }
+  },
+  "assets_mapping": {
+    "chapitre_0": "intro_bureau.jpg",
+    "chapitre_0_page_2": "rapport_synthese.jpg",
+    "chapitre_0_page_3": "trombinoscope_groupe.jpg",
+    "chapitre_0_page_4": "inventaire_scelles.jpg",
+    "chapitre_0_page_5": "fermeture_dossier.jpg",
+    "chapitre_1": {
+      "chloe": "chloe_room_nerveuse.jpg",
+      "leo": "leo_room_neutre.jpg"
+    },
+    "interrogation_room": "room_shadow.jpg",
+    "icons": {
+      "flashback": "👁️",
+      "completed": "✓"
+    }
+  }
+}
