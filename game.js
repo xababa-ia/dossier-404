@@ -1,7 +1,12 @@
-const discordSdk = new DiscordSDK.DiscordSDK(YOUR_CLIENT_ID);
+const discordSdk = new (window.discordSdk || window.DiscordSDK).DiscordSDK("1486846362640322730");
 async function setupDiscord() {
-    await discordSdk.ready();
- }
+    try {
+        await discordSdk.ready();
+        console.log("Discord SDK is ready!");
+    } catch (error) {
+        console.error("Failed to initialize Discord SDK:", error);
+    }
+}
 setupDiscord();
 
 
